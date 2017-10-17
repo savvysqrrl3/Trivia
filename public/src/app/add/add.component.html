@@ -1,0 +1,39 @@
+<a [routerLink]="['/home']">Home</a> |
+<a [routerLink]="['/new_question']">Add a Question</a> |
+
+<h2>New Question</h2>
+
+<form  (submit)="onSubmit()" #addQ='ngForm'>
+  <h4>Question
+    <textarea rows="3" cols="70" 
+    name="question"
+    required
+    minlength="15"
+    [(ngModel)]='newQ.question'>
+      Enter your trivia question
+    </textarea>
+  </h4>
+  <h4>Correct Answer:
+    <input 
+    type="text"
+    name="correct"
+    required
+    [(ngModel)]='newQ.correct'>
+  </h4>
+  <h4>Fake Answer 1:
+    <input 
+    type="text"
+    name="false1"
+    required
+    [(ngModel)]='newQ.false1'>
+  </h4>
+  <h4>Fake Answer 2:
+    <input 
+    type="text"
+    name="false2"
+    required
+    [(ngModel)]='newQ.false2'>
+  </h4>
+    <button type="button" (click)="cancel()">Cancel</button>
+    <input type="submit" value="Add Question" [disabled]='addQ.invalid'>
+</form>

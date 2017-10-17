@@ -1,0 +1,48 @@
+<h4>
+  Hi {{username}}!
+</h4>
+Choose an answer for each of the questions and submit the test once done. Good luck!
+<form (submit)="calculate()">
+  <div class="question" *ngFor="let entry of questions, let idx = index">
+    <section *ngIf="idx == 0">
+      1. {{entry.question}}
+      <p>
+        <input type="radio" name="Q1" value="f1" [(ngModel)]="entry.answer">{{entry.false1}}
+      </p>
+      <p>
+        <input type="radio" name="Q1" value="c" [(ngModel)]="entry.answer">{{entry.correct}}
+      </p>
+      <p>
+        <input type="radio" name="Q1" value="f2" [(ngModel)]="entry.answer">{{entry.false2}}
+      </p>
+    </section>
+    <section *ngIf="idx == 1">
+      2. {{entry.question}}
+      <p>
+        <input type="radio" name="Q2" value="c" [(ngModel)]="entry.answer">{{entry.correct}}
+      </p>
+      <p>
+        <input type="radio" name="Q2" value="f2" [(ngModel)]="entry.answer">{{entry.false2}}
+      </p>
+      <p>
+        <input type="radio" name="Q2" value="f1" [(ngModel)]="entry.answer">{{entry.false1}}
+      </p>
+    </section>
+    <section *ngIf="idx == 2">
+      3. {{entry.question}}
+      <p>
+        <input type="radio" name="Q3" value="f2" [(ngModel)]="entry.answer">{{entry.false2}}
+      </p>
+      <p>
+        <input type="radio" name="Q3" value="f1" [(ngModel)]="entry.answer">{{entry.false1}}
+      </p>
+      <p>
+        <input type="radio" name="Q3" value="c" [(ngModel)]="entry.answer">{{entry.correct}}
+      </p>
+    </section>
+  </div>
+  <button type="button" (click)="cancel()">Cancel</button>
+  <input type="submit" value="Submit">
+</form>
+
+<!-- {{questions | json}} -->

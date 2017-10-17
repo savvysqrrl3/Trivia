@@ -1,0 +1,22 @@
+<a [routerLink]="['/home']">Home</a> |
+<a [routerLink]="['/new_question']">Add a Question</a> |
+<a href="/home">Log off </a>
+
+<div id="play">
+<button (click)="startGame()">Play!</button>
+<h5>Click the botton above to start the trivia game.</h5>
+</div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Percentage</th>
+  </tr>
+  <tr *ngFor="let game of allGames">
+    <td>{{game.username}} </td>
+    <td>{{game.score}}/3</td>
+    <td>{{game.percentage}}</td>
+  </tr>  
+
+</table>
